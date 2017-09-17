@@ -1,9 +1,11 @@
 <?php
   class db{
     //Codigo comentado durante todo el curso, plantillas para examen y a MEJORARRRR!!!
+
+    //se le puede pasar la ipv4 aunque sigue siendo loclahost
     private $ip="localhost";
     private $usuario="root";
-    private $contraseña="root";
+    private $contraseña="1234";
     private $db="rapidmurillo";
 
     protected $conexion;
