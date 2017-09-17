@@ -1,10 +1,9 @@
 <?php
 //COMENTADO includes parte php llama a la clase usuario,seguridad,otras etc
-// include "lib/usuario.php";
-// $user=new usuario();
-// include "lib/seguridad.php";
-// $seguridad = new Seguridad();
-
+include "lib/usuario.php";
+$user=new UsuarioBD();
+include "lib/seguridad.php";
+$seguridad = new Seguridad();
 // include "lib/clases.php";
 // $clase= new Clases();
 // include "lib/libros.php";
@@ -12,7 +11,7 @@
 // include "lib/electronica.php";
 // $elec= new Electronica();
 
-//Proyecto para gestor: realizar toda la parte de login y registro, apartado bases de datos para usuarios y jugadores-club, incorporar 
+//Proyecto para gestor: realizar toda la parte de login y registro, apartado bases de datos para usuarios y jugadores-club, incorporar
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,23 +26,27 @@
     <nav>
       <ul>
         <li><a href="equipos.php">Equipos</a></li>
-        <li><a href="equipos.php">Partidos</a></li>
         <li><a href="club.php">Club</a></li>
-        <li><a href="noticias.php">Noticias</a></li>
         <li><a href="contacto.php">Contacto</a></li>
         <li><a href="tienda.php">Tienda</a></li>
-        <a href="login.php">Inicia Sesion</a>
-        <a href="registro.php">Registrate</a>
-        <li><a href="jugador.php">jugadores</a></li>
+        <?php
+        if($seguridad->getUsuario()==null){
+              echo "<a href='login.php'>Login</a>";
+        }else {
+          echo "hola ".$seguridad->getUsuario();
+          $ip = $_SERVER['REMOTE_ADDR'];
+          echo ", la ip suya es".$ip;
+        }
+        ?>
+        <!-- <a href="login.php">Login</a> -->
+        <!-- <li><a href="jugador.php">jugadores</a></li> -->
       </ul>
     </nav>
   </section>
 
     <header>
-    <img src="img/logo.gif" alt="">
+      <img src="img/logo.gif" alt="">
       <h1>C.F. RAPID MURILLO</h1>
-      <p>Logo y Nombre</p>
-
     </header>
     <!--    <section id="main-content">
       <h1>Contenido Principal</h1>
@@ -61,9 +64,21 @@
       </aside>
     </section> -->
     <section id="main2">
-      <h1>Noticias</h1>
+      <h1>Noticias :</h1>
+      <p><a STYLE="font-size:18px; font-family:arial; color:white" href="http://www.elroubio.net/?p=adopt_an_elephpant">Ejemplo de pagina muy limpia VENTAS, otro proyecto</a></p>
     </section>
-<!-- <h1>BODY fuera de cajas</h1> -->
+
+    <section id="main3">
+      <img src="img/uno.png" alt="">
+      <img src="img/dos.jpg" alt="">
+      <img src="img/tres.jpg" alt="">
+    </section>
+
+
+
+
+
+
  <footer>
       <h1>Footer</h1>
       <h3><p>Guillermo Barberá</p></h3>

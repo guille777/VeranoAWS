@@ -34,7 +34,8 @@ li a:hover{
   background: #6ec5ff;
   border-bottom: 3px solid #0099ff;
 }*/
-#main-content{
+
+/*#main-content{
   height: 120px;
   border: solid;
   position: relative;
@@ -43,11 +44,25 @@ li a:hover{
   padding-bottom: -202px;
   padding-right: 50px;
   background-color: #045757;
-}
+}*/
 #main2{
+  
+  width: auto;
   border: solid;
-  height: 90px;
+  height: 100px;
   text-align: center;
+}
+#main3{
+  background-color: white;
+  width: auto;
+  border: solid;
+  height: 150px;
+  text-align: center;
+}
+#main3 img{
+  width: auto;
+  height: 150px;
+  line-height: 0;
 }
 /*#footer{
   width: 100%;
@@ -85,6 +100,9 @@ html, body {
 body{
   height: auto;
   background-color: #044343;
+}
+a{
+  color: yellow;
 }
 header{
   margin: 0 auto;

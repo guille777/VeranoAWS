@@ -21,6 +21,10 @@ $seguridad=new Seguridad();
         <input type="submit" value="LogOut">
       </form>
     </div>
+
+
+
+    
     <?php
     if(isset($_POST["accion"])){
         if ($_POST["accion"]=="logout") {

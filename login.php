@@ -17,15 +17,17 @@ if(isset($_POST["accion"])){
 
 			$user=new UsuarioBD();
 			$seguridad = new Seguridad();
-		 
+
 	        $resultado=$user->buscarLogin($_POST["usuario"]);
 	        if($resultado!=null){
 	        	echo "usuario encontrado";
 	          //Comparamos los passwords     CON sha1 esta encriptado...
 	          if($resultado["pass"]==sha1($_POST["contr1"])){
 	          	//con esta funcion hace sesion start en miperfil.php
-	       		$seguridad->addUsuario($_POST["usuario"],$_POST["id_usuario"]);
+	          	var_dump($resultado);
+	       		$seguridad->addUsuario($resultado['usuario'],$resutado['id_usuario'],$resultado['rol']);
 
+	            //header('Location: protegida.php');
 	            header('Location: protegida.php');         
 	            // $seguridad->addUsuario($resultado["usuario"]);
 	          }else{
@@ -41,12 +43,12 @@ if(isset($_POST["accion"])){
 
   		<form class="" action="login.php" method="post">
         <h1>Haz Login :</h1>
-        
+
         <label>Usuario</label><br>
-        <input type="text" name="usuario" value="" placeholder="usuario"><br><br>    
-        <label>Contraseña</label><br>   
+        <input type="text" name="usuario" value="" placeholder="usuario"><br><br>
+        <label>Contraseña</label><br>
         <input type="password" name="contr1" value="" placeholder="Introduce una contraseña"><br><br>
-        
+
         <input type="hidden" name="accion" value="login">
 
         <input type="submit" name="" value="entrar">
@@ -57,6 +59,6 @@ if(isset($_POST["accion"])){
   </article>
 </body>
 </html>
-	
+
 </body>
 </html>

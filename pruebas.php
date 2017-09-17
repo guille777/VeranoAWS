@@ -9,7 +9,7 @@
 	// include "lib/db.php";
 	include "lib/usuario.php";
 
-	$user=new Usuario();
+	$user=new UsuarioDB();
 	$resultado=$user->buscarUsuarioInsert();
 	foreach ($resultado as $key => $value) {
 		echo $value["id_usuario"]."<br>";

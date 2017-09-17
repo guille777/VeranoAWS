@@ -4,16 +4,13 @@ include "db.php";
 *
 */
 class UsuarioBD extends db{
-	
-	function __construct()
-	{
+
+	function __construct(){
 		parent::__construct();
 	}
 	//FALTA CONTROL DE ERRORES ES POR EL EXAMEN...corregir y hacer
-	//compruebas si existe usuario e email...revisar para examen no conflictos plzz o cambbiarlo... 
-
-	
-	public function insertarUsuario($nombre,$apellidos,$usuario,$pass,$email,$rol="usuario"){		
+	//compruebas si existe usuario e email...revisar para examen no conflictos plzz o cambbiarlo...
+	public function insertarUsuario($usuario,$nombre,$apellidos,$email,$pass,$rol="usuario"){
 		// if($this->buscarUsuario($usuario) != false){
 	 //   		echo "Existe un usuario con este nombre de usuario";
 		// 	return false;
@@ -23,7 +20,7 @@ class UsuarioBD extends db{
 		// 	return false;
 		// }
 	  $sqlInsercion="INSERT INTO usuarios(usuario,nombre,apellidos,email,pass,rol) Values('".$usuario."','".$nombre."','".$apellidos."','".$email."','".sha1($pass)."','".$rol."')";
-	  echo $sqlInsercion;
+	  // echo $sqlInsercion;
 
 	     $resultado=$this->realizarConsulta($sqlInsercion);
 	     if ($resultado!=null) {
@@ -60,11 +57,11 @@ class UsuarioBD extends db{
 	    $sql="SELECT * from usuarios WHERE usuario='".$usuario."'";
 	    //Realizamos la consulta
 	    $resultado=$this->realizarConsulta($sql);
-	    if($resultado!=false){	      
+	    if($resultado!=false){
 	        return $resultado->fetch_assoc();
 	    }else{
 	        return null;
-	      }	    
+	      }
   	}
   	//funcion on return directo, para luego poder recorrer cn foreach... con where filtrado O SINN FILTRAR
   	function buscarUsuarioInsert($usuario){
@@ -78,7 +75,7 @@ class UsuarioBD extends db{
  //  	}
 
   	//Muchas funciones desde el principio, borrar despues de examen xd;
-  	
+
 	// public function actualizarEquipo($codigo,$nombre,$procedencia,$altura,$peso,$posicion,$Nombre_equipo){
 	// 	$sqlActualizar="UPDATE jugadores SET codigo='".$codigo."',Nombre='".$nombre."',Procedencia='".$procedencia."',Altura='".$altura."',Peso='".$peso."',Posicion='".$posicion."',Nombre_equipo='".$Nombre_equipo."' WHERE codigo='".$codigo."' ";
 	// 	$this->conexion->query($sqlActualizar);
@@ -93,7 +90,7 @@ class UsuarioBD extends db{
 	//   $sql="SELECT * FROM jugadores WHERE codigo = '".$codigo."' ";
 	//     return $resultado=$this->realizarConsulta($sql);
 	// }
-	
+
 	// public function devolverJugador(){
 	// 	$sql="SELECT * FROM jugadores";
 	// 	return $resultado=$this->realizarConsulta($sql);

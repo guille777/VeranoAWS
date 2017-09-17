@@ -20,13 +20,21 @@ class Seguridad{
   }
 
   public function getId(){
-  return $this->id_usuario;
-  echo $_SESSION["id_usuario"];
+  $this->id_usuario=$_SESSION["id_usuario"];
+    return $this->id_usuario;
+    // try{
+    // }catch(){
+    // }
 }
 
-  public function addUsuario($usuario,$id_usuario){
+  public function getRol(){
+    return $_SESSION["rol"];
+  }
+
+  public function addUsuario($usuario,$id_usuario,$rol){
     $_SESSION["usuario"]=$usuario;
     $_SESSION["id_usuario"]=$id_usuario;
+    $_SESSION["rol"]=$rol;
     $this->usuario=$usuario;
     $this->id_usuario=$id_usuario;
   }

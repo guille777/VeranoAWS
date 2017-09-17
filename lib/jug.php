@@ -3,6 +3,8 @@
 * 
 */
 include "db.php";
+
+
 class Jugador extends db{
 
 	private $error=false;

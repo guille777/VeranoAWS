@@ -24,7 +24,7 @@ if (isset($_POST["accion"])) {
             		// header('Location: index.php');          
             	}
             	else{
-            	echo "usuario no registrado";
+            	echo "jugador no registrado";
             	}
 		}
 	}
